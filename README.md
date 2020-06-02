@@ -16,3 +16,8 @@ the query parameters `key` and `value`.
 2. Run the development server with `docker-compose up -d`
 3. View logs with `docker logs <container name>`
 4. To spin down the container do `docker-compose down`
+
+## Kubernetes
+- Checkout into the `kubernetes` branch to see a more stripped down version of
+  the app that uses it
+- View the `README.md` file in the branch to see specific instructions
