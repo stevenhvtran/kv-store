@@ -16,3 +16,18 @@ the query parameters `key` and `value`.
 2. Run the development server with `docker-compose up -d`
 3. View logs with `docker logs <container name>`
 4. To spin down the container do `docker-compose down`
+
+## Kubernetes
+1. Install `minikube` and `kubectl` on the local environment
+2. Reboot the system (helps avoid weird bugs that I encountered)
+3. Start the development cluster `minikube start`
+4. Enter the `minikube` context `eval $(minikube docker-env)`
+  - This allows you to create images that the deployment will be able to see
+5. Build the image that the deployment will use
+   `docker build -t <image name> .`
+6. Deploy according to the config `kubectl apply -f deployment.yaml`
+  - This deployment should expose a port with a service, LoadBalancer is a
+    possible choice here
+7. Check that they pods are running with `kubectl get pods`
+8. Navigate to the IP of service that exposes the port with
+   `minikube service <service name> --url`
