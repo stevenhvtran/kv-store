@@ -24,10 +24,10 @@ the query parameters `key` and `value`.
 4. Enter the `minikube` context `eval $(minikube docker-env)`
   - This allows you to create images that the deployment will be able to see
 5. Build the image that the deployment will use
-   `docker build -t <image name> .`
-6. Deploy according to the config `kubectl apply -f deployment.yaml`
+   `docker build -t stevenhvtran/kv-app:k8s .`
+6. Deploy according to the config `kubectl apply -f deployment.yml`
   - This deployment should expose a port with a service, LoadBalancer is a
     possible choice here
 7. Check that they pods are running with `kubectl get pods`
 8. Navigate to the IP of service that exposes the port with
-   `minikube service <service name> --url`
+   `minikube service kv-store-service --url`
